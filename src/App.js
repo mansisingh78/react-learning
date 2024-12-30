@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Navbar from "./Components/Navbar";
+import ProductCard from "./Components/Productcard";
 
 const ProductList = [
   {
@@ -270,42 +272,10 @@ const ProductList = [
   },
 ];
 
-const Navbar = () => {
-  return (
-    <div className="navbar">
-      <h1>LOGO</h1>
-      <ul className="menu_items">
-        <li>MEN</li>
-        <li>WOMEN</li>
-        <li>KIDS</li>
-        <li>CART</li>
-      </ul>
-    </div>
-  );
-};
 
-const ProductCard = () => {
-  return (
-    <div className="product_card">
-      {ProductList.map((product) => {
-        return <Product key={product.id} product={product} />;
-      })}
-    </div>
-  );
-};
 
-const Product = ({product}) => {
-  const { image, title, price, rating } = product;
 
-  return (
-    <div className="product">
-      <img className="product_img" src={image} />
-      <h1>{title}</h1>
-      <p>{rating.rate}ratings</p>
-      <p>{price}</p>
-    </div>
-  );
-};
+
 
 const App = () => {
   return (
