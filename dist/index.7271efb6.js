@@ -19087,27 +19087,69 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _constant = require("../Utils/Constant");
 var _product = require("./Product");
 var _productDefault = parcelHelpers.interopDefault(_product);
+var _s = $RefreshSig$();
 const ProductCard = ()=>{
+    _s();
+    const [listOfProduct, setListOfProduct] = (0, _react.useState)((0, _constant.ProductList));
+    // let listOfProduct = [
+    //     {
+    //         id: 1,
+    //         title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    //         price: 109.95,
+    //         description:
+    //           "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    //         category: "men's clothing",
+    //         image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    //         rating: {
+    //           rate: 3.9,
+    //           count: 120,
+    //         },
+    //       },
+    // ];
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "product_card",
-        children: (0, _constant.ProductList).map((product)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
-                product: product
-            }, product.id, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    const filteredProduct = listOfProduct.filter((Product)=>Product.rating.rate >= 4);
+                    setListOfProduct(filteredProduct);
+                },
+                style: {
+                    "marginTop": "10px"
+                },
+                children: "Top rated product"
+            }, void 0, false, {
                 fileName: "src/Components/Productcard.js",
-                lineNumber: 7,
-                columnNumber: 18
-            }, undefined);
-        })
-    }, void 0, false, {
+                lineNumber: 24,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "product_card",
+                children: listOfProduct.map((product)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                        product: product
+                    }, product.id, false, {
+                        fileName: "src/Components/Productcard.js",
+                        lineNumber: 32,
+                        columnNumber: 17
+                    }, undefined);
+                })
+            }, void 0, false, {
+                fileName: "src/Components/Productcard.js",
+                lineNumber: 29,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/Components/Productcard.js",
-        lineNumber: 5,
-        columnNumber: 7
+        lineNumber: 23,
+        columnNumber: 9
     }, undefined);
 };
+_s(ProductCard, "r5n6CQp+87af5pMEic0cwqZLITU=");
 _c = ProductCard;
 exports.default = ProductCard;
 var _c;
@@ -19118,7 +19160,7 @@ $RefreshReg$(_c, "ProductCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Utils/Constant":"41bg6","./Product":"gaXTo"}],"41bg6":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Utils/Constant":"41bg6","./Product":"gaXTo","react":"21dqq"}],"41bg6":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProductList", ()=>ProductList);
