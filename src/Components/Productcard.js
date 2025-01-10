@@ -1,10 +1,11 @@
 
 import { useEffect, useState } from "react";
-
+import Skeleton from "./Skeleton";
 import Product from "./Product";
 const ProductCard = () => {
   //local state variable
     const [listOfProduct, setListOfProduct] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
     useEffect(()=>{
       fetchData();
@@ -16,9 +17,26 @@ const ProductCard = () => {
       setListOfProduct(resData);
 
     }
+    //conditional rendering
+    if(listOfProduct.length === 0){
+      return(
+        <Skeleton/>
+      )
+    }
+  console.log(searchText);
   
     return (
         <div>
+          <div style={{marginTop: "10px"  }}>
+            <input type="text" onChange ={(e)=>setSearchText(e.target.value)} value={searchText}/>
+            <button onClick={()=>{
+              const filteredData = listOfProduct.filter((product)=>{
+                return product.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
+              })
+              setListOfProduct(filteredData);
+              
+            }}>Search</button>
+          </div>
             <button onClick={()=>{
                 const filteredProduct = listOfProduct.filter( Product => Product.rating.rate >= 4);
                 setListOfProduct(filteredProduct);

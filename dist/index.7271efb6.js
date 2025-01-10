@@ -18918,7 +18918,7 @@ $RefreshReg$(_c, "Navbar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"gkKU3":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -19104,6 +19104,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _skeleton = require("./Skeleton");
+var _skeletonDefault = parcelHelpers.interopDefault(_skeleton);
 var _product = require("./Product");
 var _productDefault = parcelHelpers.interopDefault(_product);
 var _s = $RefreshSig$();
@@ -19111,6 +19113,7 @@ const ProductCard = ()=>{
     _s();
     //local state variable
     const [listOfProduct, setListOfProduct] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         fetchData();
     }, []);
@@ -19119,8 +19122,48 @@ const ProductCard = ()=>{
         const resData = await data.json();
         setListOfProduct(resData);
     };
+    //conditional rendering
+    if (listOfProduct.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _skeletonDefault.default), {}, void 0, false, {
+        fileName: "src/Components/Productcard.js",
+        lineNumber: 23,
+        columnNumber: 9
+    }, undefined);
+    console.log(searchText);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    marginTop: "10px"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        onChange: (e)=>setSearchText(e.target.value),
+                        value: searchText
+                    }, void 0, false, {
+                        fileName: "src/Components/Productcard.js",
+                        lineNumber: 31,
+                        columnNumber: 13
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>{
+                            const filteredData = listOfProduct.filter((product)=>{
+                                return product.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
+                            });
+                            setListOfProduct(filteredData);
+                        },
+                        children: "Search"
+                    }, void 0, false, {
+                        fileName: "src/Components/Productcard.js",
+                        lineNumber: 32,
+                        columnNumber: 13
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/Productcard.js",
+                lineNumber: 30,
+                columnNumber: 11
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>{
                     const filteredProduct = listOfProduct.filter((Product)=>Product.rating.rate >= 4);
@@ -19132,7 +19175,7 @@ const ProductCard = ()=>{
                 children: "Top rated product"
             }, void 0, false, {
                 fileName: "src/Components/Productcard.js",
-                lineNumber: 22,
+                lineNumber: 40,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19142,23 +19185,23 @@ const ProductCard = ()=>{
                         product: product
                     }, product.id, false, {
                         fileName: "src/Components/Productcard.js",
-                        lineNumber: 30,
+                        lineNumber: 48,
                         columnNumber: 17
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/Components/Productcard.js",
-                lineNumber: 27,
+                lineNumber: 45,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Productcard.js",
-        lineNumber: 21,
+        lineNumber: 29,
         columnNumber: 9
     }, undefined);
 };
-_s(ProductCard, "95v/b8LY2qFVC3zdiuRIpKdnrpU=");
+_s(ProductCard, "ldvDVgKI/JUl1HFDkyP2k854GWI=");
 _c = ProductCard;
 exports.default = ProductCard;
 var _c;
@@ -19169,7 +19212,80 @@ $RefreshReg$(_c, "ProductCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Product":"gaXTo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gaXTo":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Skeleton":"gFEFc","./Product":"gaXTo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gFEFc":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$1267 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1267.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Skeleton = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "skeleton-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 4,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 5,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 6,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 7,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 8,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "skeleton"
+            }, void 0, false, {
+                fileName: "src/Components/Skeleton.js",
+                lineNumber: 9,
+                columnNumber: 5
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/Skeleton.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Skeleton;
+exports.default = Skeleton;
+var _c;
+$RefreshReg$(_c, "Skeleton");
+
+  $parcel$ReactRefreshHelpers$1267.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gaXTo":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$8084 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

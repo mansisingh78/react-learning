@@ -42,4 +42,16 @@ body {
   height: 110px;
   padding-top: 5px;
 }
+
+.skeleton-container {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.skeleton {
+  background-color: #e5e5e5;
+  width: 200px;
+  height: 400px;
+  margin: 10px;
+}
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
